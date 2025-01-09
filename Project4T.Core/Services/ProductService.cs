@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project4T.Core.IServices;
 
 namespace Project4T.Core.Services
 {
-    internal class ProductService
+    public class ProductService : IProductService
     {
     }
 }

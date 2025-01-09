@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project4T.Core.IServices
 {
-    internal interface IOrederService
+    public interface IOrderService
     {
     }
 }

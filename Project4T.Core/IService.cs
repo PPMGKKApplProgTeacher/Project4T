@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project4T.Core
 {
-    internal interface IService
+    public interface IService
     {
+
     }
 }

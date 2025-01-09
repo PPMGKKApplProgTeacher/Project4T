@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project4T.Core.IServices
+namespace Project4T.DataAccess.Repository
 {
-    public interface IOrderProductService
+    internal class Repository
     {
     }
 }
