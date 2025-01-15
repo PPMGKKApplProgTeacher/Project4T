@@ -10,7 +10,7 @@ namespace Project4T.Core.Validators
 {
     public static class ProductValidator
     {
-        private static IRepository<Product> repo;
+        private static IRepository<Product> _repo;
         public static bool Validate(string name, decimal price)
         {
             if (name.Length==0 || name.Length>30)
@@ -18,6 +18,14 @@ namespace Project4T.Core.Validators
                 return false;
             }
             if (price < 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool ProductExists(int id)
+        {
+            if (_repo.Get(id)==null)
             {
                 return false;
             }

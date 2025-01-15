@@ -35,6 +35,7 @@ namespace Project4T.Core.Services
                 return true;
             }
         }
+
         public void Add(Product product)
         {
             if (!ValidateProduct(product))
@@ -50,29 +51,39 @@ namespace Project4T.Core.Services
             return _repo.Get(id);
         }
 
-        public List<Product> GetProductByCategory(int categoryId)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Product> GetProductsByCategory(int categoryId)
         {
-            throw new NotImplementedException();
+            if (CategoryValidator.CategoryExist(categoryId))
+            {
+                return _repo.Find(x=>x.CategoryId==categoryId);
+            }
+            else
+            {
+                throw new ArgumentException("The category is not valid!");
+            }
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            if (!ValidateProduct(product))
+            {
+                throw new ArgumentException("The product is not valid!");
+            }
+            _repo.Update(product);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            if (ProductValidator.ProductExists(id))
+            {
+                _repo.Delete(id);
+            }
+            
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _repo.GetAll();
         }
 
         public List<Product> Find(Expression<Func<Product, bool>> filter)
