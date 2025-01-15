@@ -12,8 +12,8 @@ namespace Project4T.DataAccess.Repository
         void Add(T entity);
         void Update(T entity);
         void Delete(int id);
-        void Get(int id);
-        void GetAll(int id);
-        Find(Expression<Func<T, bool>> filter);
+        T Get(int id);
+        List<T> GetAll();
+        List<T> Find(Expression<Func<T, bool>> filter);
     }
 }

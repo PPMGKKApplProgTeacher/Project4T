@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -27,12 +28,17 @@ namespace Project4T.DataAccess.Repository
             throw new NotImplementedException();
         }
 
-        public void Get(int id)
+        public List<T> Find(Expression<Func<T, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public void GetAll(int id)
+        public T Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<T> GetAll()
         {
             throw new NotImplementedException();
         }
