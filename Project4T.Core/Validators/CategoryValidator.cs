@@ -10,10 +10,10 @@ namespace Project4T.Core.Validators
 {
     public static class CategoryValidator
     {
-        private static IRepository<Category> repo;
+        private static IRepository<Category> _repo;
         public static bool CategoryExist(int id)
         {
-            if (repo.Get(id) == null)
+            if (_repo.Get(id) == null)
             {
                 return false;
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -46,10 +47,35 @@ namespace Project4T.Core.Services
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Get(id);
         }
 
         public List<Product> GetProductByCategory(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProductsByCategory(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> Find(Expression<Func<Product, bool>> filter)
         {
             throw new NotImplementedException();
         }

@@ -20,7 +20,7 @@ namespace Project4T.DataAccess.Repository
         }
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Add(entity);
         }
 
         public void Delete(int id)
@@ -35,7 +35,8 @@ namespace Project4T.DataAccess.Repository
 
         public T Get(int id)
         {
-            throw new NotImplementedException();
+            T obj = dbSet.Find(id);
+            return obj;
         }
 
         public List<T> GetAll()
