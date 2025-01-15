@@ -88,7 +88,7 @@ namespace Project4T.Core.Services
 
         public List<Product> Find(Expression<Func<Product, bool>> filter)
         {
-            throw new NotImplementedException();
+            return _repo.Find(filter);
         }
     }
 }

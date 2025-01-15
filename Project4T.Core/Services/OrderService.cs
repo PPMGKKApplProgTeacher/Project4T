@@ -4,15 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project4T.Core.IServices;
+using Project4T.DataAccess.Repository;
 using Project4T.Models;
 
 namespace Project4T.Core.Services
 {
     public class OrderService : IOrderService
     {
+        private readonly IRepository<Order> _repo;
+
+        public OrderService(IRepository<Order> repo)
+        {
+            _repo = repo;
+        }
         public void Add(Order order)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Delete(int id)
