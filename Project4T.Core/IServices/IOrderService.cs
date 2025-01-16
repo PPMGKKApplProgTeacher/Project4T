@@ -20,7 +20,7 @@ namespace Project4T.Core.IServices
         // Връща списък от всички поръчки
         List<Order> GetAll();
         // Връща списък от поръчки по id на продукт
-        List<Order> GetProductOrders(int productId);
+        
 
     }
 }

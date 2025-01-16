@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Project4T.Core.IServices;
+using Project4T.Core.Validators;
 using Project4T.DataAccess.Repository;
 using Project4T.Models;
 
@@ -17,34 +19,72 @@ namespace Project4T.Core.Services
         {
             _repo = repo;
         }
+        public bool ValidateOrder(Order order)
+        {
+            foreach (var item in order.Products)
+            {
+                if (!ProductValidator.ProductExists(item.Id))
+                {
+                    return false;
+                }
+            }
+            if (!OrderValidator.ValidateInput(order.OrderDate))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public void Add(Order order)
         {
-            
+            if (ValidateOrder(order) == true)
+            {
+                _repo.Add(order);
+            }
+            else 
+            {
+                throw new ArgumentException("Validation didn't pass!");
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            if (OrderValidator.OrderExist(id))
+            {
+                _repo.Delete(id);
+            }
+            else
+            {
+                throw new ArgumentException("This order doesn't exist.");
+            }
         }
 
         public List<Order> GetAll()
         {
-            throw new NotImplementedException();
+            return _repo.GetAll();
         }
 
         public Order GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Get(id);
         }
-
-        public List<Order> GetProductOrders(int productId)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(Order order)
         {
-            throw new NotImplementedException();
+            if (!ValidateOrder(order) )
+            {
+                throw new ArgumentException("Validation didn't pass!");
+            }
+            if (!OrderValidator.OrderExist(order.Id))
+            {                                                                                    
+                throw new ArgumentException("Order doesn't exist.");
+            }
+            else
+            {
+                _repo.Update(order);
+            }
+            
         }
     }
 }

@@ -23,6 +23,11 @@ namespace Project4T.DataAccess.Repository
             dbSet.Add(entity);
         }
 
+        public List<T> CheckIfExists(List<int> id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Delete(int id)
         {
            T obj = dbSet.Find(id);

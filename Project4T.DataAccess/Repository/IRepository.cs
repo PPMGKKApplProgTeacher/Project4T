@@ -15,5 +15,6 @@ namespace Project4T.DataAccess.Repository
         T Get(int id);
         List<T> GetAll();
         List<T> Find(Expression<Func<T, bool>> filter);
+        List<T> CheckIfExists(List<int> id);
     }
 }

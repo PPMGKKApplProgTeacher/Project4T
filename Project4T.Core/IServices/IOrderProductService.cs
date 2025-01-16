@@ -21,5 +21,6 @@ namespace Project4T.Core.IServices
         List<OrderProduct> GetOrdersByProductId(int id);
         // Връща списък от продукти по id на поръчка
         List<OrderProduct> GetProductsByOrderId(int id);
+        List<Order> GetProductOrders(int productId);
     }
 }
