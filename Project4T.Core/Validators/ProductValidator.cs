@@ -11,7 +11,7 @@ namespace Project4T.Core.Validators
     public static class ProductValidator
     {
         private static IRepository<Product> _repo;
-        public static bool Validate(string name, decimal price)
+        public static bool ValidateInput(string name, decimal price)
         {
             if (name.Length==0 || name.Length>30)
             {

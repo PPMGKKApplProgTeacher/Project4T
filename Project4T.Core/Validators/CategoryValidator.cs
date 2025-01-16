@@ -22,5 +22,13 @@ namespace Project4T.Core.Validators
                 return true;
             }
         }
+        public static bool ValidateInput(string name)
+        {
+            if (name.Length == 0 || name.Length > 30)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Project4T.Core.Services
         }
         private bool ValidateProduct(Product Product)
         {
-            if (!ProductValidator.Validate(Product.Name, Product.Price))
+            if (!ProductValidator.ValidateInput(Product.Name, Product.Price))
             {
                 return false;
             }
