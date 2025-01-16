@@ -25,12 +25,14 @@ namespace Project4T.DataAccess.Repository
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+           T obj = dbSet.Find(id);
+           dbSet.Remove(obj);
         }
 
         public List<T> Find(Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            return dbSet.Where(filter).ToList();
+            
         }
 
         public T Get(int id)
@@ -41,12 +43,12 @@ namespace Project4T.DataAccess.Repository
 
         public List<T> GetAll()
         {
-            throw new NotImplementedException();
+            return dbSet.ToList();
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Update(entity);
         }
     }
 }
