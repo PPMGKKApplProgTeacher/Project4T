@@ -15,31 +15,44 @@ namespace Project4T.DataAccess.Repository
         {
             this._context = context;
             this.dbSet=_context.Set<T>();
-
         }
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Add(entity);
+            _context.SaveChanges();
         }
-
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = dbSet.Find(id);
+            if (entity != null)
+            {
+                dbSet.Remove(entity);
+                _context.SaveChanges();
+            }
+            else 
+            {
+                throw new ArgumentException("No model with that id.");
+            }
         }
-
-        public void Get(int id)
+        public T Get(int id)
         {
-            throw new NotImplementedException();
+            var entity = dbSet.Find(id);
+            if (entity == null)
+            {
+                throw new ArgumentException("No model with that id");
+            }
+            return entity;
         }
 
-        public void GetAll(int id)
+        public List<T> GetAll()
         {
-            throw new NotImplementedException();
+            var entities = dbSet.ToList();
+            return entities;
         }
-
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            dbSet.Update(entity);
+            _context.SaveChanges();
         }
     }
 }
