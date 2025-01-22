@@ -6,6 +6,10 @@
 @model Project4T.Models.Product
 
 <form method="post">
-    <label asp-for="Name">Name</label>
-    <input t
+    <label for="Name">Name</label>
+    <input type="text" asp-for="Name"/>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
 </form>

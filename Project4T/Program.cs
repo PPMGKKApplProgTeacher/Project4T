@@ -1,12 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using Project4T.DataAccess;
 using Project4T.DataAccess.Repository;
+using Project4T.Core.IServices;
+using Project4T.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(IProductService), typeof(ProductService));
+builder.Services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection,b=>b.MigrationsAssembly("Project4T.DataAccess")));
 var app = builder.Build();

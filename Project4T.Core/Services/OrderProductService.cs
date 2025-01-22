@@ -35,6 +35,11 @@ namespace Project4T.Core.Services
             throw new NotImplementedException();
         }
 
+        public List<Order> GetProductOrders(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<OrderProduct> GetProductsByOrderId(int id)
         {
             throw new NotImplementedException();
